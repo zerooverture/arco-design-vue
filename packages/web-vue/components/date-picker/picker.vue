@@ -336,6 +336,9 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    timezone: {
+      type: String,
+    },
   },
   emits: {
     /**

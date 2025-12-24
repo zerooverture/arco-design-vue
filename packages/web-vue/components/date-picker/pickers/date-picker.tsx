@@ -82,6 +82,9 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    timezone: {
+      type: String,
+    },
   },
   setup(props, { attrs, slots }) {
     return () => <Picker {...props} {...attrs} mode="date" v-slots={slots} />;

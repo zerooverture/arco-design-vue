@@ -5,6 +5,8 @@ import weekOfYear from 'dayjs/plugin/weekOfYear';
 import AdvancedFormat from 'dayjs/plugin/advancedFormat';
 import weekYear from 'dayjs/plugin/weekYear';
 import QuarterOfYear from 'dayjs/plugin/quarterOfYear';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
 import { isDayjs, isArray, isQuarter } from './is';
 import 'dayjs/locale/zh-cn';
 
@@ -38,6 +40,8 @@ originDayjs.extend(weekOfYear);
 originDayjs.extend(AdvancedFormat);
 originDayjs.extend(weekYear);
 originDayjs.extend(QuarterOfYear);
+originDayjs.extend(utc);
+originDayjs.extend(timezone);
 
 export const dayjs = originDayjs;
 
@@ -216,7 +220,12 @@ export function getDateValue(
   return formatValue(value);
 }
 
-export function initializeDateLocale(localeName: string, weekStart: number) {
+export function initializeDateLocale(
+  localeName: string,
+  weekStart: number,
+  timezone?: string
+) {
+  if (timezone) dayjs.tz.setDefault(timezone);
   dayjs.locale({ ...dayjs.Ls[localeName.toLocaleLowerCase()], weekStart });
 }
 
