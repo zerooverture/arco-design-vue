@@ -474,11 +474,16 @@ export default defineComponent({
       dayStartOfWeek,
       previewShortcut,
       showConfirmBtn,
+      timezone,
     } = toRefs(props);
 
     const { locale: globalLocal } = useI18n();
     watchEffect(() => {
-      initializeDateLocale(globalLocal.value, dayStartOfWeek.value);
+      initializeDateLocale(
+        globalLocal.value,
+        dayStartOfWeek.value,
+        timezone.value
+      );
     });
 
     const { mergedDisabled, eventHandlers } = useFormItem({ disabled });

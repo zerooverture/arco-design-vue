@@ -46,6 +46,9 @@ export default defineComponent({
       type: Number as PropType<WeekStart>,
       default: 0,
     },
+    timezone: {
+      type: String,
+    },
   },
   setup(props, { attrs, slots }) {
     return () => <Picker {...props} {...attrs} mode="week" v-slots={slots} />;

@@ -87,7 +87,7 @@ export const methods = {
 };
 
 export function getNow() {
-  return dayjs();
+  return dayjs().tz();
 }
 
 export function getSortedDayjsArray(values: Dayjs[]) {

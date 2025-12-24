@@ -35,6 +35,9 @@ export default defineComponent({
       type: String,
       default: 'YYYY-MM',
     },
+    timezone: {
+      type: String,
+    },
   },
   setup(props, { attrs, slots }) {
     return () => (
