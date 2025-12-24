@@ -293,7 +293,7 @@ export default defineComponent({
       () =>
         isSameTime?.value ||
         ((current: Dayjs, target: Dayjs) => {
-          return current.isSame(target, 'day');
+          return current.tz().isSame(target.tz(), 'day');
         })
     );
 

@@ -130,7 +130,7 @@ export default defineComponent({
         rangeValues: [],
         hoverRangeValues: [],
         isSameTime: (current: Dayjs, target: Dayjs) =>
-          current.isSame(target, 'day'),
+          current.tz().isSame(target.tz(), 'day'),
       })
     );
 
